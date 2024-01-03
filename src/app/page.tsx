@@ -1,5 +1,5 @@
-import Image from "../../node_modules/next/image";
-import Link from "../../node_modules/next/link";
+import Image from "@node_modules/next/image";
+import Link from "@node_modules/next/link";
 
 const imageStyle = {
   width: "100%",
