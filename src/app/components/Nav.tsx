@@ -9,7 +9,7 @@ const Nav = () => {
 //   const { data: session } = useSession();
 
 //   const [providers, setProviders] = useState(null);
-//   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
 //   useEffect(() => {
 //     const setUpProviders = async () => {
@@ -22,14 +22,15 @@ const Nav = () => {
 //   }, []);
 
   return (
-    <nav className="flex justify-between w-full m-10 ">
+    <nav className="flex justify-between  m-10 ">
       <Link href="/" className="flex gap-2 flex-center items-center">
         <Image
-          src="/images/autobuy_logo.png"
+          src="/assets/images/autobuy_logo.png"
           alt="Autobuy logo"
           width={100}
           height={100}
           className="object-contain"
+          priority={false}
         />
       </Link>
 
@@ -38,7 +39,7 @@ const Nav = () => {
       <div className="sm:flex hidden">
         <div className="flex gap-3 md:gap-5">
         <button className="rounded-full bg-orange-special p-3 hover:bg-orange-special-light text-white">Log In</button>
-        <button className="rounded-full border-2 border-orange-special p-3 hover:text-orange-special">Sign In</button>
+        <button className="btn">Sign In</button>
 
         </div>
       </div>
@@ -81,6 +82,23 @@ const Nav = () => {
       </div> */}
 
       {/* Mobile Navigation */}
+
+      <div className="sm:hidden flex  mr-2">
+        <Image
+         src="/assets/images/lines.svg"
+         width={30}
+         height={30}
+         className="rounded-full"
+         alt="lines"
+         onClick={() => setToggleDropdown((prev) => !prev)}
+        />
+        {toggleDropdown && (<div className="dorpdown"> <Link
+                  href="/profile"
+                  className="dropdown_link"
+                >
+                  My Profile
+                </Link></div>)}
+      </div>
 {/* 
       <div className="sm:hidden flex relative">
         {session?.user ? (

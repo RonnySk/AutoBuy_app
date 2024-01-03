@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,6 +13,7 @@ const config: Config = {
         'orange-special': '#ef5b24',
         'orange-special-light': '#ed784c'
       },
+     
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
