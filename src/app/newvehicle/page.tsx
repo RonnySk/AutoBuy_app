@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 type FormValues = {
@@ -12,10 +13,12 @@ type FormValues = {
 
 const AddNewVehicle = () => {
   const { register, handleSubmit } = useForm<FormValues>();
+  const [newAnnouncement, setNewAnnouncement] = useState<FormValues>();
 
   function onHandleFormSubmit(data: FormValues) {
-    console.log({ data });
+    setNewAnnouncement(data);
   }
+  console.log("novo veiculo", newAnnouncement);
 
   return (
     <>
