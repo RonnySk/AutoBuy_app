@@ -28,6 +28,6 @@ const AdSchema = new Schema({
   },
 });
 
-const Advertisement = models.Advertisement || model("advertisement", AdSchema);
+const Advertisement = models.advertisement || model("advertisement", AdSchema);
 
 export default Advertisement;

@@ -2,8 +2,7 @@
 
 import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
-// import { useEffect } from "react";
-import PostsPage from "./api/advertisement/new/route";
+import { useState, useEffect } from "react";
 
 const imageStyle = {
   width: "100%",
@@ -11,31 +10,7 @@ const imageStyle = {
   borderRadius: "3%",
 };
 
-import { useState, useEffect } from "react";
-
-type User = {
-  //   id: string;
-  email: string;
-  username: string;
-};
-
 const Page2 = () => {
-  const [data, setData] = useState<User[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/api/advertisement", {
-        method: "GET",
-      });
-      const data = await response.json();
-      setData(data);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(data);
-
   return (
     <>
       <section>

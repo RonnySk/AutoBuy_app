@@ -20,5 +20,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     await newAdvertisement.save();
 
     return new Response(JSON.stringify(newAdvertisement), { status: 201 });
-  } catch (error) {}
+  } catch (error) {
+    return new Response("Failed to create a new advertisement", {
+      status: 500,
+    });
+  }
 };
