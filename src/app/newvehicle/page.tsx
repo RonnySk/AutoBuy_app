@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -12,12 +13,29 @@ type FormValues = {
 };
 
 const AddNewVehicle = () => {
+  const { data: session } = useSession();
   const { register, handleSubmit } = useForm<FormValues>();
   const [newAnnouncement, setNewAnnouncement] = useState<FormValues>();
 
-  function onHandleFormSubmit(data: FormValues) {
+  // function onHandleFormSubmit(data: FormValues) {
+
+  //   setNewAnnouncement(data);
+  // }
+
+  const onHandleFormSubmit = async (data: FormValues) => {
+    try {
+      const response = await fetch("/api/advertisement/new", {
+        method: "POST",
+        body: JSON.stringify({
+          data,
+          userId: session?.user.id,
+        }),
+      });
+    } catch (error) {}
+
     setNewAnnouncement(data);
-  }
+  };
+
   console.log("novo veiculo", newAnnouncement);
 
   return (

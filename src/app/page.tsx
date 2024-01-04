@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
+// import { useEffect } from "react";
+import PostsPage from "./api/advertisement/new/route";
 
 const imageStyle = {
   width: "100%",
@@ -7,18 +11,31 @@ const imageStyle = {
   borderRadius: "3%",
 };
 
-{
-  /* <Image
-   src="/images/base_img.png"
-   width={0}
-   height={0}
-   sizes='100vw'
-   style={{ width: '100%', height: 'auto' }} 
-   alt="cars and moto"
-   /> */
-}
+import { useState, useEffect } from "react";
 
-const page2 = () => {
+type User = {
+  //   id: string;
+  email: string;
+  username: string;
+};
+
+const Page2 = () => {
+  const [data, setData] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/api/advertisement", {
+        method: "GET",
+      });
+      const data = await response.json();
+      setData(data);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
   return (
     <>
       <section>
@@ -125,4 +142,4 @@ const page2 = () => {
   );
 };
 
-export default page2;
+export default Page2;
