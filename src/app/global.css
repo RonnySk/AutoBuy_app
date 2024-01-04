@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,19 +17,22 @@
   }
 }
 
-
 /* .app {
     @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
   } */
 
-  .btn {
-    @apply rounded-full border-2 border-orange-special p-3 hover:text-orange-special;
-  }
+.btn {
+  @apply rounded-full border-2 border-orange-special p-3 hover:text-orange-special;
+}
 
 .dropdown {
-    @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
-  }
-  
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
 .dropdown_link {
-    @apply text-sm  text-gray-700 hover:text-gray-500 font-medium;
-  }
+  @apply text-sm  text-gray-700 hover:text-gray-500 font-medium;
+}
+
+.ipt {
+  @apply border-2 text-black rounded-lg m-2;
+}

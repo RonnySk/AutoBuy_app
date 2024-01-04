@@ -40,7 +40,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link
-              href="/create-prompt"
+              href="/newvehicle"
               className="rounded-full bg-orange-special p-3 hover:bg-orange-special-light text-white"
             >
               Add new vehicle
