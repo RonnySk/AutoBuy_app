@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -14,13 +15,9 @@ type FormValues = {
 
 const AddNewVehicle = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   const { register, handleSubmit } = useForm<FormValues>();
   const [newAnnouncement, setNewAnnouncement] = useState<FormValues>();
-
-  // function onHandleFormSubmit(data: FormValues) {
-
-  //   setNewAnnouncement(data);
-  // }
 
   const onHandleFormSubmit = async (data: FormValues) => {
     try {
@@ -31,6 +28,10 @@ const AddNewVehicle = () => {
           userId: session?.user.id,
         }),
       });
+
+      if (response.ok) {
+        router.push("/");
+      }
     } catch (error) {}
 
     setNewAnnouncement(data);
