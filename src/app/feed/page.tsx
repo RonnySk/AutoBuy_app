@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import AdCard from "@src/app/components/AdCard";
+import VehicleCardList from "../components/VehicleCardList";
 
 // const PromptCardList = ({ adData }: Advertisement[]) => {
 //   return (
@@ -31,7 +32,7 @@ const Feed = () => {
 
   return (
     <section>
-      <PromptCardList adData={ads} />
+      <VehicleCardList adData={ads} />
     </section>
   );
 };

@@ -1,4 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import VehicleCardList from "../components/VehicleCardList";
 
 const Profile = () => {
   const [ads, setAds] = useState<Advertisement[]>([]);
@@ -18,7 +21,7 @@ const Profile = () => {
 
   return (
     <section>
-      <PromptCardList adData={ads} />
+      <VehicleCardList adData={ads} />
     </section>
   );
 

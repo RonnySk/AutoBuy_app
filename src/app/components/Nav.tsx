@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "@node_modules/next/image";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -21,6 +21,11 @@ const Nav = () => {
 
     setUpProviders();
   }, []);
+
+  // const logout = () => {
+  //   signOut();
+  //   router.push("/");
+  // };
 
   return (
     <nav className="flex justify-between  m-10 ">
@@ -47,7 +52,15 @@ const Nav = () => {
               Add new vehicle
             </Link>
 
-            <button type="button" onClick={signOut} className="btn">
+            <button
+              type="button"
+              onClick={() =>
+                signOut({ redirect: false }).then(() => {
+                  router.push("/");
+                })
+              }
+              className="btn"
+            >
               Logout
             </button>
           </div>
