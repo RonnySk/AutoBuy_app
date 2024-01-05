@@ -1,27 +1,33 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import VehicleCardList from "../components/VehicleCardList";
 
 const Profile = () => {
-  const [ads, setAds] = useState<Advertisement[]>([]);
+  const { data: session } = useSession();
+  const [clientAds, setClientAds] = useState<Advertisement[]>([]);
 
   useEffect(() => {
-    const fetchAds = async () => {
-      const response = await fetch("/api/advertisement/all", {
-        method: "GET",
+    const fetchClientAds = async () => {
+      const response = await fetch("/api/advertisement/allclientad", {
+        method: "POST",
+        body: JSON.stringify({
+          userId: session?.user.id,
+        }),
       });
+
       const data = await response.json();
-      setAds(data);
+      setClientAds(data);
     };
 
-    fetchAds();
+    fetchClientAds();
   }, []);
-  console.log("ads state", ads);
+  console.log("ads state", clientAds);
 
   return (
     <section>
-      <VehicleCardList adData={ads} />
+      <VehicleCardList adData={clientAds} />
     </section>
   );
 
