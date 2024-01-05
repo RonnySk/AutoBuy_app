@@ -3,9 +3,9 @@
 import Image from "@node_modules/next/image";
 import Link from "@node_modules/next/link";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import Feed from "./feed/page";
 
 const imageStyle = {
   width: "100%",
@@ -13,9 +13,8 @@ const imageStyle = {
   borderRadius: "3%",
 };
 
-const Page2 = () => {
+const Home = () => {
   const { data: session } = useSession();
-  // const router = useRouter();
   const { register, handleSubmit } = useForm<SearchFormValues>();
   const [searchedAds, setSearchedAds] = useState<SearchFormValues[]>([]);
 
@@ -29,13 +28,10 @@ const Page2 = () => {
       });
       const data = await response.json();
       console.log("response from api", data);
-      // setSearchedAds(data);
+      setSearchedAds(data);
       if (response.ok) {
-        // router.push("/");
       }
     } catch (error) {}
-
-    // setNewAnnouncement(data);
   };
 
   return (
@@ -97,53 +93,57 @@ const Page2 = () => {
           </div>
         </form>
       </section>
-      <section className="flex flex-col sm:grid grid-rows-2 grid-flow-col gap-3 justify-items-center m-6 ">
-        <Link href="/">
-          <Image
-            src="/assets/images/base_img.png"
-            width={0}
-            height={0}
-            sizes="50vw"
-            style={imageStyle}
-            alt="cars and moto"
-          />
-        </Link>
+      {searchedAds.length !== 0 ? (
+        <Feed />
+      ) : (
+        <section className="flex flex-col sm:grid grid-rows-2 grid-flow-col gap-3 justify-items-center m-6 ">
+          <Link href="/">
+            <Image
+              src="/assets/images/base_img.png"
+              width={0}
+              height={0}
+              sizes="50vw"
+              style={imageStyle}
+              alt="cars and moto"
+            />
+          </Link>
 
-        <Link href="/">
-          <Image
-            src="/assets/images/base_img.png"
-            width={0}
-            height={0}
-            sizes="50vw"
-            style={imageStyle}
-            alt="cars and moto"
-          />
-        </Link>
+          <Link href="/">
+            <Image
+              src="/assets/images/base_img.png"
+              width={0}
+              height={0}
+              sizes="50vw"
+              style={imageStyle}
+              alt="cars and moto"
+            />
+          </Link>
 
-        <Link href="/">
-          <Image
-            src="/assets/images/base_img.png"
-            width={0}
-            height={0}
-            sizes="50vw"
-            style={imageStyle}
-            alt="cars and moto"
-          />
-        </Link>
+          <Link href="/">
+            <Image
+              src="/assets/images/base_img.png"
+              width={0}
+              height={0}
+              sizes="50vw"
+              style={imageStyle}
+              alt="cars and moto"
+            />
+          </Link>
 
-        <Link href="/">
-          <Image
-            src="/assets/images/base_img.png"
-            width={0}
-            height={0}
-            sizes="50vw"
-            style={imageStyle}
-            alt="cars and moto"
-          />
-        </Link>
-      </section>
+          <Link href="/">
+            <Image
+              src="/assets/images/base_img.png"
+              width={0}
+              height={0}
+              sizes="50vw"
+              style={imageStyle}
+              alt="cars and moto"
+            />
+          </Link>
+        </section>
+      )}
     </>
   );
 };
 
-export default Page2;
+export default Home;

@@ -1,10 +1,10 @@
 "use client";
 
+import * as React from "react";
 import { useEffect, useState } from "react";
 import AdCard from "@src/app/components/AdCard";
 
-const PromptCardList = (props: IMyProps) => {
-  const { adData } = props;
+const PromptCardList = ({ adData }: Advertisement[]) => {
   return (
     <div className="mt-16 space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3 ">
       {adData.length !== 0
@@ -13,10 +13,6 @@ const PromptCardList = (props: IMyProps) => {
     </div>
   );
 };
-
-interface IMyProps {
-  adData: Advertisement[];
-}
 
 const Feed = () => {
   const [ads, setAds] = useState<Advertisement[]>([]);
