@@ -20,7 +20,7 @@ const Nav = () => {
     };
 
     setUpProviders();
-  }, []);
+  }, [router]);
 
   return (
     <nav className="flex justify-between  m-10 ">

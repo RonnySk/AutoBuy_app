@@ -5,11 +5,13 @@ const AdCard = (info: IMyProps) => {
   const { adData } = info;
   const { data: session } = useSession();
 
+  console.log("user id ", session);
+
   const bookmarksHandler = async () => {
     const response = await fetch("/api/advertisement/bookmarks", {
       method: "POST",
       body: JSON.stringify({
-        userId: session?.user?.id,
+        userId: session?.user.id,
         adData,
       }),
     });
