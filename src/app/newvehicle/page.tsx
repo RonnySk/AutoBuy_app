@@ -21,22 +21,35 @@ const AddNewVehicle = () => {
   const { register, handleSubmit } = useForm<FormValues>();
   const [newAnnouncement, setNewAnnouncement] = useState<FormValues>();
 
-  const onHandleFormSubmit = async (data: FormValues) => {
+  const onHandleFormSubmit = async (inputData: FormValues) => {
     try {
       const response = await fetch("/api/advertisement/new", {
         method: "POST",
         body: JSON.stringify({
-          data,
+          inputData,
           userId: session?.user.id,
         }),
       });
+
+      // const response = await fetch("/api/advertisement/new", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     title: inputData.title,
+      //     model: inputData.model.toLocaleLowerCase(),
+      //     price: inputData.price,
+      //     brand: inputData.brand.toLocaleLowerCase(),
+      //     year: inputData.year,
+      //     description: inputData.description,
+      //     userId: session?.user.id,
+      //   }),
+      // });
 
       if (response.ok) {
         router.push("/");
       }
     } catch (error) {}
 
-    setNewAnnouncement(data);
+    // setNewAnnouncement(data);
   };
 
   console.log("novo veiculo", newAnnouncement);
@@ -53,7 +66,7 @@ const AddNewVehicle = () => {
             type="text"
             id="title"
             {...register("title")}
-            className="ipt"
+            className="ipt "
           />
           <label htmlFor="model">Model</label>
           <input
@@ -74,7 +87,7 @@ const AddNewVehicle = () => {
             type="text"
             {...register("brand")}
             id="brand"
-            className="ipt"
+            className="ipt "
           />
           <label htmlFor="year">Year</label>
           <input
@@ -90,7 +103,7 @@ const AddNewVehicle = () => {
             id="description"
             className="ipt"
           />
-          <button>Add</button>
+          <button className="btn">Add</button>
         </div>
       </form>
     </>

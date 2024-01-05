@@ -9,9 +9,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     await connectToDB();
     const searchedAd = await Advertisement.find({
       $or: [
-        { title: data.title },
+        { model: data.title.toLowerCase() },
         { price: data.price },
-        { brand: data.brand },
+        { brand: data.brand.toLowerCase() },
         { year: data.year },
       ],
     }).populate("creator");

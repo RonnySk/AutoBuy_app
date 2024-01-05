@@ -11,8 +11,8 @@ const AdSchema = new Schema({
     required: [true, "Title is required!"],
   },
   model: {
-    type: Number,
-    required: [true, "Price is required!"],
+    type: String,
+    required: [true, "Model is required!"],
   },
 
   price: {

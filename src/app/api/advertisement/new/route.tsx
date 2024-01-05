@@ -3,19 +3,19 @@ import Advertisement from "@modelsadvertisement";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  const { data, userId } = await req.json();
-  console.log(data, userId);
+  const { inputData, userId } = await req.json();
+  console.log("post request", inputData, userId);
 
   try {
     await connectToDB();
     const newAdvertisement = new Advertisement({
       creator: userId,
-      model: data.model,
-      title: data.title,
-      price: data.price,
-      brand: data.brand,
-      year: data.year,
-      description: data.description,
+      model: inputData.model.toLowerCase(),
+      title: inputData.title,
+      price: inputData.price,
+      brand: inputData.brand.toLowerCase(),
+      year: inputData.year,
+      description: inputData.description,
     });
 
     await newAdvertisement.save();
