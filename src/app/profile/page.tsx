@@ -13,7 +13,7 @@ const Profile = () => {
       const response = await fetch("/api/advertisement/allclientad", {
         method: "POST",
         body: JSON.stringify({
-          userId: session?.user.id,
+          userId: session?.user?.id,
         }),
       });
 
@@ -26,14 +26,12 @@ const Profile = () => {
   console.log("ads state", clientAds);
 
   return (
-    <section>
-      <VehicleCardList adData={clientAds} />
-    </section>
-  );
-
-  return (
     <>
-      <div>profile</div>
+      <section>
+        <h2>Welcome {session?.user?.name}</h2>
+        <h3>Your Ads</h3>
+        <VehicleCardList adData={clientAds} />
+      </section>
     </>
   );
 };

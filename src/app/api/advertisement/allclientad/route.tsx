@@ -8,10 +8,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     await connectToDB();
     const allClientAd = await Advertisement.find({ creator: userId });
 
-    // console.log("all clients add", allClientAd);
-
-    console.log("userId", userId);
-
     return new Response(JSON.stringify(allClientAd), { status: 201 });
   } catch (error) {
     return new Response("Failed to get all client advertisement", {

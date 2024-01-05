@@ -22,19 +22,14 @@ const Nav = () => {
     setUpProviders();
   }, []);
 
-  // const logout = () => {
-  //   signOut();
-  //   router.push("/");
-  // };
-
   return (
     <nav className="flex justify-between  m-10 ">
       <Link href="/" className="flex gap-2 flex-center items-center">
         <Image
           src="/assets/images/autobuy_logo.png"
           alt="Autobuy logo"
-          width={100}
-          height={100}
+          width={150}
+          height={150}
           className="object-contain"
           priority={false}
         />
@@ -44,12 +39,16 @@ const Nav = () => {
 
       <div className="sm:flex hidden">
         {session?.user ? (
-          <div className="flex gap-3 md:gap-5">
+          <div className="flex gap-3 md:gap-5 items-center">
             <Link
               href="/newvehicle"
               className="rounded-full bg-orange-special p-3 hover:bg-orange-special-light text-white"
             >
               Add new vehicle
+            </Link>
+
+            <Link href="/profile" className="btn">
+              Profile
             </Link>
 
             <button
