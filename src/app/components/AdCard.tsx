@@ -1,8 +1,21 @@
-import Image from "next/image";
-import heartIcon from "../../../public/assets/images/heartIcon.svg";
+import { BookmarkIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
 
 const AdCard = (info: IMyProps) => {
   const { adData } = info;
+  const { data: session } = useSession();
+
+  const bookmarksHandler = async () => {
+    const response = await fetch("/api/advertisement/bookmarks", {
+      method: "POST",
+      body: JSON.stringify({
+        userId: session?.user?.id,
+        adData,
+      }),
+    });
+
+    const data = await response.json();
+  };
 
   return (
     <>
@@ -12,14 +25,10 @@ const AdCard = (info: IMyProps) => {
         <p>{adData.brand}</p>
         <p>{adData.year}</p>
         <p>{adData.description}</p>
-        <Image
-          src={heartIcon}
-          width={30}
-          height={30}
-          className="rounded-full"
-          alt="lines"
-          // onClick={() => setToggleDropdown((prev) => !prev)}
-        />
+
+        <button onClick={bookmarksHandler}>
+          <BookmarkIcon className="w-4 h-4 flex-shrink-0" />
+        </button>
       </section>
     </>
   );
