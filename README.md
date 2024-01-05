@@ -20,5 +20,3 @@ AutoBUy is a Full-stack App to sell and buy cars.
 # Author
 
 Ronny Skaraboto Linkedin: www.linkedin.com/in/ronny-skaraboto
-
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=RonnySk&repo=AutoBuy_app)](https://github.com/RonnySk/AutoBuy_app)
