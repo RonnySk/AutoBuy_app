@@ -15,6 +15,7 @@ const AdCard = (info: IMyProps) => {
     });
 
     const data = await response.json();
+    alert(data.message);
   };
 
   return (
