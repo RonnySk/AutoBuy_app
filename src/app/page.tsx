@@ -13,20 +13,13 @@ const imageStyle = {
   borderRadius: "3%",
 };
 
-type FormValues = {
-  title?: string;
-  price?: number;
-  brand?: string;
-  year?: number;
-  model?: string;
-};
-
 const Page2 = () => {
   const { data: session } = useSession();
   // const router = useRouter();
-  const { register, handleSubmit } = useForm<FormValues>();
+  const { register, handleSubmit } = useForm<SearchFormValues>();
+  const [searchedAds, setSearchedAds] = useState<SearchFormValues[]>([]);
 
-  const onHandleFormSubmit = async (inputData: FormValues) => {
+  const onHandleFormSubmit = async (inputData: SearchFormValues) => {
     try {
       const response = await fetch("/api/advertisement/searched", {
         method: "POST",
@@ -34,7 +27,9 @@ const Page2 = () => {
           inputData,
         }),
       });
-
+      const data = await response.json();
+      console.log("response from api", data);
+      // setSearchedAds(data);
       if (response.ok) {
         // router.push("/");
       }

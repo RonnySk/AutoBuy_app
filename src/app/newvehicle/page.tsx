@@ -6,22 +6,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import AdCard from "../components/AdCard";
 
-type FormValues = {
-  title: string;
-  model: string;
-  price: number;
-  brand: string;
-  year: number;
-  description: string;
-};
-
 const AddNewVehicle = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const { register, handleSubmit } = useForm<FormValues>();
-  const [newAnnouncement, setNewAnnouncement] = useState<FormValues>();
+  const { register, handleSubmit } = useForm<NewVehicleFormValues>();
+  const [newAnnouncement, setNewAnnouncement] =
+    useState<NewVehicleFormValues>();
 
-  const onHandleFormSubmit = async (inputData: FormValues) => {
+  const onHandleFormSubmit = async (inputData: NewVehicleFormValues) => {
     try {
       const response = await fetch("/api/advertisement/new", {
         method: "POST",
