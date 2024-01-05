@@ -3,20 +3,20 @@ import Advertisement from "@modelsadvertisement";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  const { data } = await req.json();
-  console.log("searche db", data);
+  const { inputData } = await req.json();
+
   try {
     await connectToDB();
     const searchedAd = await Advertisement.find({
       $or: [
-        { model: data.title.toLowerCase() },
-        { price: data.price },
-        { brand: data.brand.toLowerCase() },
-        { year: data.year },
+        { model: inputData.model.toLowerCase() },
+        { price: inputData.price },
+        { brand: inputData.brand.toLowerCase() },
+        { year: inputData.year },
       ],
     }).populate("creator");
 
-    console.log(searchedAd);
+    console.log("ad on db", searchedAd);
 
     return new Response(JSON.stringify(searchedAd), { status: 201 });
   } catch (error) {

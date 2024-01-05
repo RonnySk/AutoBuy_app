@@ -26,12 +26,12 @@ const Page2 = () => {
   // const router = useRouter();
   const { register, handleSubmit } = useForm<FormValues>();
 
-  const onHandleFormSubmit = async (data: FormValues) => {
+  const onHandleFormSubmit = async (inputData: FormValues) => {
     try {
       const response = await fetch("/api/advertisement/searched", {
         method: "POST",
         body: JSON.stringify({
-          data,
+          inputData,
         }),
       });
 
