@@ -10,6 +10,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     await connectToDB();
     const newAdvertisement = new Advertisement({
       creator: userId,
+      model: data.model,
       title: data.title,
       price: data.price,
       brand: data.brand,

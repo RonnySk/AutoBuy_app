@@ -6,6 +6,7 @@ type Creator = {
 
 type Advertisement = Creator & {
   _id: number | string;
+  model: string;
   title: string;
   price: number;
   brand: string;
@@ -15,11 +16,24 @@ type Advertisement = Creator & {
 };
 
 interface IMyProps {
-  info: Advertisement;
+  adData: Advertisement;
 }
 
 const AdCard = (info: IMyProps) => {
-  return <div>AdCard</div>;
+  const { adData } = info;
+
+  return (
+    <>
+      <section>
+        <h1>{adData.title}</h1>
+        <h2>{adData.price}</h2>
+        <p>{adData.brand}</p>
+        <p>{adData.year}</p>
+        <p>{adData.description}</p>
+      </section>
+      ;
+    </>
+  );
 };
 
 export default AdCard;

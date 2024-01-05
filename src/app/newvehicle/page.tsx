@@ -4,9 +4,11 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import AdCard from "../components/AdCard";
 
 type FormValues = {
   title: string;
+  model: string;
   price: number;
   brand: string;
   year: number;
@@ -51,6 +53,13 @@ const AddNewVehicle = () => {
             type="text"
             id="title"
             {...register("title")}
+            className="ipt"
+          />
+          <label htmlFor="model">Model</label>
+          <input
+            type="text"
+            id="model"
+            {...register("model")}
             className="ipt"
           />
           <label htmlFor="price">Price</label>

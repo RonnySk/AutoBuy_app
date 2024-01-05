@@ -8,7 +8,7 @@ const PromptCardList = (props: IMyProps) => {
   return (
     <div className="mt-16 space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3 ">
       {adData.length !== 0
-        ? adData.map((ad: Advertisement) => <AdCard key={ad._id} info={ad} />)
+        ? adData.map((ad: Advertisement) => <AdCard key={ad._id} adData={ad} />)
         : null}
     </div>
   );
@@ -22,6 +22,7 @@ type Creator = {
 
 type Advertisement = Creator & {
   _id: number | string;
+  model: string;
   title: string;
   price: number;
   brand: string;
