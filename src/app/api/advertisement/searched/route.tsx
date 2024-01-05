@@ -8,7 +8,12 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
     await connectToDB();
     const searchedAd = await Advertisement.find({
-      title: data.title,
+      $or: [
+        { title: data.title },
+        { price: data.price },
+        { brand: data.brand },
+        { year: data.year },
+      ],
     }).populate("creator");
 
     console.log(searchedAd);
