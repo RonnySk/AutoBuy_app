@@ -1,13 +1,6 @@
 export {};
 
 declare global {
-  type UserSession = {
-    email: string;
-    id: number | string;
-    image: string;
-    name: string;
-  };
-
   type SearchFormValues = {
     title?: string;
     price?: number;
