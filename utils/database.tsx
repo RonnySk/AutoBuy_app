@@ -11,11 +11,14 @@ export const connectToDB = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: "autobuy",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      process.env.MONGODB_URI ? process.env.MONGODB_URI : "",
+      {
+        dbName: "autobuy",
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
+      }
+    );
 
     isConnected = true;
 
