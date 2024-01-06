@@ -16,7 +16,7 @@ const AddNewVehicle = () => {
   //   useState<NewVehicleFormValues>();
   const [file, setFile] = useState<any>(null);
   const [filename, setFilename] = useState("");
-  const [imgUrl, setImgUrl] = useState<any>([]);
+  const [imgUrl, setImgUrl] = useState<string[]>([]);
 
   const handleFileChange = (event: any) => {
     setFile(event.target.files[0]);
@@ -72,7 +72,7 @@ const AddNewVehicle = () => {
           Upload image
         </button>
 
-        {imgUrl.map((oneImgUrl, index) => (
+        {imgUrl.map((oneImgUrl: string) => (
           <>
             <div className="add-photo-card" key={oneImgUrl}>
               <Image src={oneImgUrl} width={50} height={50} alt="vehicle" />
