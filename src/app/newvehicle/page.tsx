@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import AdCard from "../components/AdCard";
 import axios from "axios";
 import Image from "next/image";
 
@@ -12,8 +11,6 @@ const AddNewVehicle = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const { register, handleSubmit } = useForm<NewVehicleFormValues>();
-  // const [newAnnouncement, setNewAnnouncement] =
-  //   useState<NewVehicleFormValues>();
   const [file, setFile] = useState<any>(null);
   const [filename, setFilename] = useState("");
   const [imgUrl, setImgUrl] = useState<string[]>([]);
@@ -40,7 +37,6 @@ const AddNewVehicle = () => {
       console.error(error);
     }
   };
-  console.log("imgUrl", imgUrl);
 
   const onHandleFormSubmit = async (inputData: NewVehicleFormValues) => {
     try {
@@ -56,10 +52,10 @@ const AddNewVehicle = () => {
       if (response.ok) {
         router.push("/");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
-
-  // console.log("novo veiculo", newAnnouncement);
 
   return (
     <>
@@ -75,7 +71,7 @@ const AddNewVehicle = () => {
         {imgUrl.map((oneImgUrl: string) => (
           <>
             <div className="add-photo-card" key={oneImgUrl}>
-              <Image src={oneImgUrl} width={50} height={50} alt="vehicle" />
+              <Image src={oneImgUrl} width={80} height={80} alt="vehicle" />
               <button
                 onClick={() => {
                   setImgUrl(imgUrl.filter((a) => a !== oneImgUrl));
