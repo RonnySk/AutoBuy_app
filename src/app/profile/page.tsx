@@ -22,7 +22,7 @@ const Profile = () => {
     };
 
     fetchClientAds();
-  }, []);
+  }, [session?.user?.id]);
   console.log("ads state", clientAds);
 
   return (
