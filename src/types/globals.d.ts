@@ -34,4 +34,12 @@ declare global {
     __v: number;
     description: string;
   };
+
+  interface PropsArrAdData {
+    adData: Advertisement[];
+  }
+
+  interface PropsAdData {
+    adData: Advertisement;
+  }
 }
