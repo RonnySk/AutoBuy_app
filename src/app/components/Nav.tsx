@@ -3,13 +3,24 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "@node_modules/next/image";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import {
+  signIn,
+  signOut,
+  useSession,
+  getProviders,
+  ClientSafeProvider,
+  LiteralUnion,
+} from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
+import { BuiltInProviderType } from "next-auth/providers";
 
 const Nav = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const [providers, setProviders] = useState(null);
+  const [providers, setProviders] = useState<Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  > | null>(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
