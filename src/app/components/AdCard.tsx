@@ -1,8 +1,9 @@
 import { BookmarkIcon } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
 
-const AdCard = (info: IMyProps) => {
-  const { adData } = info;
+const AdCard = (props: Advertisement) => {
+  const adData: Advertisement = props;
+  console.log("datat from card", adData);
   const { data: session } = useSession();
 
   console.log("user id ", session);
