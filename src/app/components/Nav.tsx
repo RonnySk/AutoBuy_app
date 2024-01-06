@@ -27,11 +27,10 @@ const Nav = () => {
     const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
-      router.push("/profile");
     };
 
     setUpProviders();
-  }, [router]);
+  }, []);
 
   return (
     <nav className="flex justify-between  m-10 ">
@@ -81,7 +80,9 @@ const Nav = () => {
                 <button
                   type="button"
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() =>
+                    signIn(provider.id, { callbackUrl: "/profile" })
+                  }
                   className="btn"
                 >
                   Sign In
