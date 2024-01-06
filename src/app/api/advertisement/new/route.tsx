@@ -3,8 +3,8 @@ import Advertisement from "@modelsadvertisement";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
-  const { inputData, userId } = await req.json();
-  console.log("post request", inputData, userId);
+  const { inputData, userId, imgUrl } = await req.json();
+  console.log("post request", inputData, userId, imgUrl);
 
   try {
     await connectToDB();
@@ -16,6 +16,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       brand: inputData.brand.toLowerCase(),
       year: inputData.year,
       description: inputData.description,
+      imgUrl: imgUrl,
     });
 
     await newAdvertisement.save();

@@ -6,7 +6,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   const { userId } = await req.json();
   try {
     await connectToDB();
-    const allClientAd = await Advertisement.find({ creator: userId });
+
+    const allClientAd = await Advertisement.find({ userId });
+
+    console.log("response from mongodb", allClientAd);
 
     return new Response(JSON.stringify(allClientAd), { status: 201 });
   } catch (error) {

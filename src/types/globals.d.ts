@@ -16,6 +16,7 @@ declare global {
     brand: string;
     year: number;
     description: string;
+    imgUrl: string[];
   };
 
   type Creator = {
@@ -33,6 +34,7 @@ declare global {
     year: number;
     __v: number;
     description: string;
+    imgUrl: string[];
   };
 
   interface PropsArrAdData {

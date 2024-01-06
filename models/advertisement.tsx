@@ -31,6 +31,12 @@ const AdSchema = new Schema({
     type: String,
     required: [true, "Description is required!"],
   },
+  imgUrl: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
 });
 
 const Advertisement = models.advertisement || model("advertisement", AdSchema);
