@@ -17,10 +17,6 @@
   }
 }
 
-/* .app {
-    @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
-  } */
-
 .btn {
   @apply rounded-full border-2 border-orange-special p-3 hover:text-orange-special;
 }

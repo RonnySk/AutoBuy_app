@@ -59,81 +59,109 @@ const AddNewVehicle = () => {
 
   return (
     <>
-      <div>
-        <div>
-          <input type="file" className="ipt" onChange={handleFileChange} />
-          <label>{filename}</label>
-        </div>
-        <button className="btn" type="submit" onClick={handleSubmitImg}>
-          Upload image
-        </button>
+      <div className="flex justify-center w-full">
+        <div className="flex flex-col justify-center items-center p-6 border-2 rounded-lg m-6 sm: w-3/4 ">
+          <div className="flex flex-col">
+            <div className="flex flex-col items-center sm:flex-row">
+              <input
+                type="file"
+                className="ipt w-4/5 h-1/2"
+                onChange={handleFileChange}
+              />
 
-        {imgUrl.map((oneImgUrl: string) => (
-          <>
-            <div className="add-photo-card" key={oneImgUrl}>
-              <Image src={oneImgUrl} width={80} height={80} alt="vehicle" />
               <button
-                onClick={() => {
-                  setImgUrl(imgUrl.filter((a) => a !== oneImgUrl));
-                }}
+                className="btn w-40 "
+                type="submit"
+                onClick={handleSubmitImg}
               >
-                Delete image
+                Upload image
               </button>
             </div>
-          </>
-        ))}
 
-        <form
-          className="flex justify-center items-center p-6"
-          onSubmit={handleSubmit(onHandleFormSubmit)}
-        >
-          <div className="flex flex-col justify-center items-center p-6 border-2 rounded-lg mt-4">
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              {...register("title")}
-              className="ipt "
-            />
-            <label htmlFor="model">Model</label>
-            <input
-              type="text"
-              id="model"
-              {...register("model")}
-              className="ipt"
-            />
-            <label htmlFor="price">Price</label>
-            <input
-              type="number"
-              {...register("price")}
-              id="price"
-              className="ipt"
-            />
-            <label htmlFor="brand">Brand</label>
-            <input
-              type="text"
-              {...register("brand")}
-              id="brand"
-              className="ipt "
-            />
-            <label htmlFor="year">Year</label>
-            <input
-              type="number"
-              {...register("year")}
-              id="year"
-              className="ipt"
-            />
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              {...register("description")}
-              id="description"
-              className="ipt"
-            />
-
-            <button className="btn">Add new vehicle</button>
+            {imgUrl.map((oneImgUrl: string) => (
+              <>
+                <div className="flex gap-2 mt-2 items-center" key={oneImgUrl}>
+                  <Image
+                    src={oneImgUrl}
+                    width={150}
+                    height={150}
+                    alt="vehicle"
+                  />
+                  <button
+                    className="flex btn  h-12 items-center"
+                    onClick={() => {
+                      setImgUrl(imgUrl.filter((a) => a !== oneImgUrl));
+                    }}
+                  >
+                    Delete image
+                  </button>
+                </div>
+              </>
+            ))}
           </div>
-        </form>
+
+          <form
+            className="flex flex-col items-center"
+            onSubmit={handleSubmit(onHandleFormSubmit)}
+          >
+            <div className="flex flex-col items-center sm:grid grid-cols-2  gap-2 justify-center items-center p-6">
+              <div>
+                <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  {...register("title")}
+                  className="ipt "
+                />
+              </div>
+              <div>
+                <label htmlFor="model">Model</label>
+                <input
+                  type="text"
+                  id="model"
+                  {...register("model")}
+                  className="ipt"
+                />
+              </div>
+              <div>
+                <label htmlFor="price">Price</label>
+                <input
+                  type="number"
+                  {...register("price")}
+                  id="price"
+                  className="ipt"
+                />
+              </div>
+              <div>
+                <label htmlFor="brand">Brand</label>
+                <input
+                  type="text"
+                  {...register("brand")}
+                  id="brand"
+                  className="ipt "
+                />
+              </div>
+              <div>
+                <label htmlFor="year">Year</label>
+                <input
+                  type="number"
+                  {...register("year")}
+                  id="year"
+                  className="ipt"
+                />
+              </div>
+              <div>
+                <label htmlFor="description">Description</label>
+                <textarea
+                  {...register("description")}
+                  id="description"
+                  className="ipt w-full"
+                ></textarea>
+              </div>
+            </div>
+            <button className="btn">Add new vehicle</button>
+          </form>
+        </div>
       </div>
     </>
   );
