@@ -2,7 +2,7 @@
 
 # Deploy Version
 
-in progress...
+https://autobuy-app.vercel.app
 
 # About
 
