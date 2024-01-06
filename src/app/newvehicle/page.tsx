@@ -135,13 +135,6 @@ const AddNewVehicle = () => {
               className="ipt"
             />
 
-            <label htmlFor="img">Add Image</label>
-            <input
-              type="fild"
-              {...register("img")}
-              id="description"
-              className="ipt"
-            />
             <button className="btn">Add new vehicle</button>
           </div>
         </form>
