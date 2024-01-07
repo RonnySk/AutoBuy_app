@@ -15,6 +15,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       price: inputData.price,
       brand: inputData.brand.toLowerCase(),
       year: inputData.year,
+      adress: inputData.adress,
+      phone: inputData.phone,
       description: inputData.description,
       imgUrl: imgUrl,
     });

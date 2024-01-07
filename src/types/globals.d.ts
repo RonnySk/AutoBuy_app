@@ -16,6 +16,8 @@ declare global {
     brand: string;
     year: number;
     description: string;
+    adress: string;
+    phone: number;
     imgUrl: string[];
   };
 
@@ -32,6 +34,9 @@ declare global {
     price: number;
     brand: string;
     year: number;
+
+    adress: string;
+    phone: number;
     __v: number;
     description: string;
     imgUrl: string[];

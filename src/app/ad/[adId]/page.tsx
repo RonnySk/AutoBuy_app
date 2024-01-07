@@ -62,11 +62,11 @@ const AdDescription = ({ params }: { params: { adId: string | number } }) => {
             <p>{adData?.description} </p>
             <div className="flex gap-2 items-center">
               <MapPinIcon className="w-5 h-5 flex-shrink-0" />
-              <p>{adData?.year}</p>
+              <p>{adData?.adress}</p>
             </div>
             <div className="flex gap-2 items-center">
               <PhoneArrowUpRightIcon className="w-5 h-5 flex-shrink-0" />
-              <p>{adData?.year}</p>
+              <p>{adData?.phone}</p>
             </div>
           </div>
         </div>

@@ -151,6 +151,24 @@ const AddNewVehicle = () => {
                 />
               </div>
               <div>
+                <label htmlFor="adress">Adress</label>
+                <input
+                  type="text"
+                  {...register("adress")}
+                  id="adress"
+                  className="ipt"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="number"
+                  {...register("phone")}
+                  id="phone"
+                  className="ipt"
+                />
+              </div>
+              <div>
                 <label htmlFor="description">Description</label>
                 <textarea
                   {...register("description")}
