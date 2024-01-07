@@ -14,7 +14,6 @@ AutoBUy is a Full-stack App to sell and buy cars.
 - TypeScript
 - Tailwind
 - Node.js
-- Express
 - MondoDB
 
 # Author
