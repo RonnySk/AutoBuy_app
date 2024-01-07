@@ -9,7 +9,7 @@ import Feed from "./feed/page";
 
 const imageStyle = {
   width: "100%",
-  height: "auto",
+  height: "90%",
   borderRadius: "3%",
 };
 
@@ -96,50 +96,49 @@ const Home = () => {
       {searchedAds.length !== 0 ? (
         <Feed />
       ) : (
-        <section className="flex flex-col sm:grid grid-rows-2 grid-flow-col gap-3 justify-items-center m-6 ">
-          <Link href="/">
+        <section className="flex flex-col sm:grid grid-rows-2 grid-flow-col gap-6  m-6 ">
+          <a href="http://www.allianzdirect.de" target="_blank">
             <Image
-              src="/assets/images/base_img.png"
+              src="/assets/images/car.security2.jpg"
               width={0}
               height={0}
               sizes="50vw"
               style={imageStyle}
               alt="cars and moto"
             />
-          </Link>
+          </a>
 
-          <Link href="/">
+          <a href="http://www.roadtripusa.com/" target="_blank">
             <Image
-              src="/assets/images/base_img.png"
+              src="/assets/images/road.jpg"
               width={0}
               height={0}
               sizes="50vw"
               style={imageStyle}
               alt="cars and moto"
             />
-          </Link>
+          </a>
+          <a href="https://www.motorsport.com/" target="_blank">
+            <Image
+              src="/assets/images/car_cup2.png"
+              width={0}
+              height={0}
+              sizes="50vw"
+              style={imageStyle}
+              alt="cars and moto"
+            />
+          </a>
 
-          <Link href="/">
+          <a href="https://www.gasbuddy.com/home" target="_blank">
             <Image
-              src="/assets/images/base_img.png"
+              src="/assets/images/car_gasstation.jpg"
               width={0}
               height={0}
               sizes="50vw"
               style={imageStyle}
               alt="cars and moto"
             />
-          </Link>
-
-          <Link href="/">
-            <Image
-              src="/assets/images/base_img.png"
-              width={0}
-              height={0}
-              sizes="50vw"
-              style={imageStyle}
-              alt="cars and moto"
-            />
-          </Link>
+          </a>
         </section>
       )}
     </>
