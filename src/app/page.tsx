@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <>
       <section>
-        <div className="relative">
+        <div className="relative ">
           <Image
             src="/assets/images/base_img.png"
             width={0}
@@ -46,17 +46,17 @@ const Home = () => {
             style={{ width: "100%", height: "auto" }}
             alt="cars and moto"
           />
-          <div className="absolute bottom-8 px-6 py-3 w-full">
-            <h1 className="text-white font-semibold text-4xl">
+          <div className="flex  flex-col my-6 gap-2 sm:absolute bottom-6 px-6 py-3 w-full  ">
+            <h1 className="text-black sm:text-white  font-semibold text-4xl  ">
               Buy and sell <br /> your vehicle here!{" "}
             </h1>
-            <p className="text-gray-200">
+            <p className="text-orange-special sm:text-gray-200">
               Find the best selection of new and used vehicles
             </p>
           </div>
         </div>
       </section>
-      <section className="flex justify-center h-auto ">
+      <section className="flex justify-center h-auto  ">
         <form onSubmit={handleSubmit(onHandleFormSubmit)}>
           <div className="flex flex-col justify-items-center sm:flex-row justify-around border-2 rounded-lg mt-4 ">
             <input
