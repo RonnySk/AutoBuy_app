@@ -22,18 +22,10 @@ const AdCard = (props: PropsAdData) => {
     const data = await response.json();
     alert(data.message);
   };
-
   return (
     <>
       <section className=" flex flex-col m-4 gap-2 border-2 rounded-md w-80 h-auto hover:border-orange-special  ">
-        <Link
-          href={{
-            pathname: `/ad`,
-            query: {
-              id: adData.id,
-            },
-          }}
-        >
+        <Link href={`../ad/${adData._id}`}>
           <Image
             src={adData.imgUrl[0]}
             width={320}
