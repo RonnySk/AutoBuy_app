@@ -31,6 +31,14 @@ const AdSchema = new Schema({
     type: String,
     required: [true, "Description is required!"],
   },
+  adress: {
+    type: String,
+    required: [true, "Description is required!"],
+  },
+  phone: {
+    type: String,
+    required: [true, "Description is required!"],
+  },
   imgUrl: [
     {
       type: String,
