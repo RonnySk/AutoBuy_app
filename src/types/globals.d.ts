@@ -34,7 +34,6 @@ declare global {
     price: number;
     brand: string;
     year: number;
-
     adress: string;
     phone: number;
     __v: number;

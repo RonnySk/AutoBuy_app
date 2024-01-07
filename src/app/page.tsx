@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "@node_modules/next/image";
-import Link from "@node_modules/next/link";
-import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Feed from "./feed/page";
@@ -14,7 +12,6 @@ const imageStyle = {
 };
 
 const Home = () => {
-  const { data: session } = useSession();
   const { register, handleSubmit } = useForm<SearchFormValues>();
   const [searchedAds, setSearchedAds] = useState<SearchFormValues[]>([]);
 
